@@ -873,9 +873,12 @@ pre:hover .copy-button {
 }
 
 /* Grid Areas */
-.about-card {
+.about-wrapper {
   grid-column: 1 / 2;
   grid-row: 1 / 3; /* Tall column on left */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
 .online-card {
@@ -893,12 +896,178 @@ pre:hover .copy-button {
   grid-row: 2 / 3;
 }
 
+/* ABOUT SECTION INTERNAL GRID */
+.about-title-area h2 {
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.about-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.about-internal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.about-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.info-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: transform 0.2s;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--glass-highlight);
+}
+
+/* Bio Card */
+.bio-card {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+}
+
+/* Likes Card */
+.likes-list-vertical {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.likes-list-vertical li {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.likes-list-vertical li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-left-color: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+/* Stats Card */
+.stats-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.stat-text .highlight {
+  color: var(--color-accent);
+  font-weight: bold;
+  text-decoration: line-through; /* Just for style */
+}
+
+.stat-sub {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+}
+
+/* Terminal Card */
+.terminal-card {
+  background: #0f0f14;
+  border: 1px solid #333;
+  padding: 0;
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: #1a1a20;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid #333;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.terminal-body {
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.code-line {
+  margin-bottom: 4px;
+  color: #ccc;
+}
+
+.prompt { color: var(--color-accent); margin-right: 6px; }
+.cmd { color: #fff; }
+.output { color: #888; margin-left: 14px; font-style: italic; }
+
+/* Quote Card */
+.quote-card {
+  border-left: 3px solid var(--color-secondary);
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), transparent);
+}
+
+.quote-text {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Games Mini Grid */
+.games-grid-mini {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.game-item-mini {
+  aspect-ratio: 3/4;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #222;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .bento-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .about-card { grid-column: 1 / 2; grid-row: 1 / 2; }
+  .about-wrapper { grid-column: 1 / 2; grid-row: 1 / 2; }
   .online-card { grid-column: 2 / 3; grid-row: 1 / 2; }
   .works-card { grid-column: 1 / 2; grid-row: 2 / 3; }
   .indieweb-card { grid-column: 2 / 3; grid-row: 2 / 3; }
@@ -908,6 +1077,9 @@ pre:hover .copy-button {
   .bento-grid {
     display: flex;
     flex-direction: column;
+  }
+  .about-internal-grid {
+    grid-template-columns: 1fr; /* Stack internal about cards on mobile */
   }
 }
 

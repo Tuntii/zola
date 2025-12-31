@@ -23,6 +23,12 @@
     </header>
 
     <div class="grid-container">
+      {% if section.pages | length == 0 %}
+      <div class="no-content">
+        <p>Bu bölümde henüz içerik bulunmamaktadır.</p>
+        <!-- Debug: Section path: {{ section.path }}, Page count: {{ section.pages | length }} -->
+      </div>
+      {% endif %}
       {% for page in section.pages %}
       <a href="{{ page.permalink | safe }}" class="modern-card {% if section.extra.page_class == 'projects' %}project-card{% elif section.extra.page_class == 'thoughts' %}thought-card{% endif %}">
         <div class="card-content">

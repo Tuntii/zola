@@ -1,6 +1,7 @@
 +++
 title = "OpenAuditKit"
-date = 2024-12-15
+date = 2023-12-15
+draft = false
 description = "Modern kod tabanları için yapay zeka destekli güvenlik denetim aracı."
 [taxonomies]
 tags = ["rust", "security", "ai"]

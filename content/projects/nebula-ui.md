@@ -1,6 +1,7 @@
 +++
 title = "Nebula UI"
-date = 2024-11-20
+date = 2023-11-20
+draft = false
 description = "React ve Tailwind CSS için hazırlanmış, uzay temalı modern bileşen kütüphanesi."
 [taxonomies]
 tags = ["react", "design-system", "ui"]

@@ -1,6 +1,7 @@
 +++
 title = "RustAPI"
-date = 2025-01-01
+date = 2023-01-01
+draft = false
 description = "Rust ekosistemi için FastAPI benzeri, ergonomik ve yüksek performanslı web framework'ü."
 [taxonomies]
 tags = ["rust", "web-framework", "api", "openapi"]

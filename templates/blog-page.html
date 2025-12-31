@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
-{% block content %}
-{% set page_class = "blog" %}
-{% if page.path is starting_with("/projects") %}
-    {% set page_class = "projects" %}
-{% elif page.path is starting_with("/poetry") %}
-    {% set page_class = "poetry" %}
-{% elif page.path is starting_with("/thoughts") %}
-    {% set page_class = "thoughts" %}
-{% endif %}
+{% block data_page %}
+{% if page.path is starting_with("/projects") %}projects
+{% elif page.path is starting_with("/poetry") %}poetry
+{% elif page.path is starting_with("/thoughts") %}thoughts
+{% else %}blog{% endif %}
+{% endblock data_page %}
 
-<section class="page blog-post-page" data-page="{{ page_class }}">
+{% block content %}
+<section class="page blog-post-page">
   <div class="page-content">
     <div class="hero">
       <h1 class="hero-title">

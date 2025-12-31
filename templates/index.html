@@ -37,41 +37,78 @@
       
       <div class="bento-grid">
         <!-- 1. ABOUT SECTION -->
-      <div class="bento-card about-card">
-        <div class="about-header">
-          <h1>{{ section.extra.intro_text | default(value="Merhaba! Ben Tunay.") }}</h1>
+      <div class="about-wrapper">
+        <div class="about-title-area">
+          <h2>About</h2>
+          <p class="about-subtitle">Biraz kendimden bahsedeyim.</p>
         </div>
         
-        <div class="about-content">
-          <div class="likes-section">
-            <h3>Random things I like</h3>
-            <ul class="likes-list">
-              {% if section.extra.likes %}
-                {% for like in section.extra.likes %}
-                <li>{{ like.name }}</li>
-                {% endfor %}
-              {% else %}
-                <li>Coding</li><li>Design</li>
-              {% endif %}
-            </ul>
-          </div>
-          
-          <blockquote class="shy-quote">
-            "{{ section.extra.quote | default(value="I'm rather shy...") }}"
-          </blockquote>
+        <div class="about-internal-grid">
+          <!-- Col 1 -->
+          <div class="about-col">
+            <!-- Bio Card -->
+            <div class="info-card bio-card">
+              <p>{{ section.extra.intro_text | default(value="Merhaba! Ben Tunay.") }}</p>
+            </div>
 
-          <div class="games-section">
-            <h3>Games I like</h3>
-            <div class="games-grid">
-              {% if section.extra.games %}
-                {% for game in section.extra.games %}
-                <div class="game-item" title="{{ game.name }}">
-                  <div class="game-cover" style="background-image: url('{{ game.image }}'); background-color: #333;"></div>
-                </div>
-                {% endfor %}
-              {% else %}
-                 <div class="game-item"><div class="game-cover" style="background-color: #333;"></div></div>
-              {% endif %}
+            <!-- Likes Card -->
+            <div class="info-card likes-card">
+              <h3>Random things I like:</h3>
+              <ul class="likes-list-vertical">
+                {% if section.extra.likes %}
+                  {% for like in section.extra.likes %}
+                  <li>
+                    <span class="like-name">{{ like.name }}</span>
+                  </li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+
+            <!-- Age/Stats Card -->
+            <div class="info-card stats-card">
+              <span class="stat-text">I am <span class="highlight">Level 24</span>.</span>
+              <span class="stat-sub">'00 was a busy year.</span>
+            </div>
+          </div>
+
+          <!-- Col 2 -->
+          <div class="about-col">
+            <!-- Terminal Card -->
+            <div class="info-card terminal-card">
+              <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">tunay.exe</span>
+              </div>
+              <div class="terminal-body">
+                <div class="code-line"><span class="prompt">></span> <span class="cmd">whoami</span></div>
+                <div class="code-line output">"Creative Developer"</div>
+                <div class="code-line"><span class="prompt">></span> <span class="cmd">echo $MOOD</span></div>
+                <div class="code-line output">"Always learning..."</div>
+              </div>
+            </div>
+
+            <!-- Quote Card -->
+            <div class="info-card quote-card">
+              <p class="quote-text">"{{ section.extra.quote | default(value="I'm rather shy...") }}"</p>
+            </div>
+
+            <!-- Games Card -->
+            <div class="info-card games-card">
+              <div class="card-header">
+                <h3>Games I like:</h3>
+              </div>
+              <div class="games-grid-mini">
+                {% if section.extra.games %}
+                  {% for game in section.extra.games %}
+                  <div class="game-item-mini" title="{{ game.name }}">
+                    <div class="game-cover" style="background-image: url('{{ game.image }}'); background-color: #333;"></div>
+                  </div>
+                  {% endfor %}
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>

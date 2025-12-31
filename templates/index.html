@@ -130,46 +130,47 @@
           </div>
         </div>
 
-        <!-- Socials Card -->
-        <div class="info-card socials-card">
-          <h3>Socials</h3>
-          <div class="socials-grid">
-            {% if section.extra.socials %}
-              {% for social in section.extra.socials %}
-              <a href="{{ social.url }}" class="social-btn" target="_blank" rel="noopener">
-                <span class="social-icon">
-                  {% if social.icon == "github" %}GH
-                  {% elif social.icon == "twitter" %}TW
-                  {% elif social.icon == "discord" %}DC
-                  {% else %}LINK{% endif %}
-                </span>
-                <span class="social-name">{{ social.name }}</span>
-              </a>
-              {% endfor %}
-            {% endif %}
-          </div>
-        </div>
-
-        <!-- Contacts Card -->
-        <div class="info-card contacts-card">
-          <h3>Contacts</h3>
-          <ul class="contacts-list">
-            {% if section.extra.contacts %}
-              {% for contact in section.extra.contacts %}
-              <li>
-                <div class="contact-info">
-                  <span class="contact-icon">
-                    {% if contact.icon == "mail" %}@{
-                    {% elif contact.icon == "discord" %}#{
-                    {% else %}->{% endif %}
+        <!-- Socials & Contacts Card (Combined) -->
+        <div class="info-card socials-contacts-card">
+          <div class="socials-section">
+            <h3>Socials</h3>
+            <div class="socials-grid">
+              {% if section.extra.socials %}
+                {% for social in section.extra.socials %}
+                <a href="{{ social.url }}" class="social-btn" target="_blank" rel="noopener">
+                  <span class="social-icon">
+                    {% if social.icon == "github" %}GH
+                    {% elif social.icon == "twitter" %}TW
+                    {% elif social.icon == "discord" %}DC
+                    {% else %}LINK{% endif %}
                   </span>
-                  <span class="contact-value">{{ contact.value }}</span>
+                  <span class="social-name">{{ social.name }}</span>
+                </a>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+          
+          <div class="contacts-section">
+            <h3>Contacts</h3>
+            <div class="contacts-compact">
+              {% if section.extra.contacts %}
+                {% for contact in section.extra.contacts %}
+                <div class="contact-item">
+                  <span class="contact-icon">
+                    {% if contact.icon == "mail" %}✉
+                    {% elif contact.icon == "discord" %}💬
+                    {% else %}→{% endif %}
+                  </span>
+                  <div class="contact-details">
+                    <span class="contact-value">{{ contact.value }}</span>
+                    <span class="contact-label">{{ contact.name }}</span>
+                  </div>
                 </div>
-                <span class="contact-label">{{ contact.name }}</span>
-              </li>
-              {% endfor %}
-            {% endif %}
-          </ul>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
         </div>
       </div>
 

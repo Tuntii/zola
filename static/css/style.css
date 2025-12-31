@@ -1394,3 +1394,77 @@ pre:hover .copy-button {
   line-height: 1.6;
 }
 
+/* Combined Socials & Contacts Card */
+.socials-contacts-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.socials-section,
+.contacts-section {
+  padding: var(--space-md);
+}
+
+.socials-section {
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.socials-section h3,
+.contacts-section h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+}
+
+.contacts-compact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(4px);
+}
+
+.contact-item .contact-icon {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.contact-details .contact-value {
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+}
+
+.contact-details .contact-label {
+  font-size: 0.65rem;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

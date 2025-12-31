@@ -3,11 +3,41 @@
 {% block data_page %}home{% endblock data_page %}
 
 {% block content %}
-<section class="page home-page">
-  <div class="page-content">
+<div class="home-container">
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-name">Tunay</h1>
+      <p class="hero-bio">
+        {{ section.extra.intro_text | default(value="Greetings! Welcome to my little corner on the World Wide Web.") }}
+      </p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn-hero primary">About Me ↓</a>
+        <a href="{{ get_url(path='/projects') }}" class="btn-hero secondary">Projects →</a>
+      </div>
+    </div>
     
-    <div class="bento-grid">
-      <!-- 1. ABOUT SECTION -->
+    <div class="hero-visual">
+      <div class="polaroid-card">
+        <div class="polaroid-inner">
+          <div class="polaroid-image"></div>
+          <div class="polaroid-caption">
+            <span class="caption-title">INSTANT PHOTO</span>
+            <span class="caption-text">feeling creative, nice</span>
+            <span class="caption-date">today ☺</span>
+          </div>
+        </div>
+        <div class="polaroid-pin"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO GRID SECTION -->
+  <section id="about" class="page home-page bento-section">
+    <div class="page-content">
+      
+      <div class="bento-grid">
+        <!-- 1. ABOUT SECTION -->
       <div class="bento-card about-card">
         <div class="about-header">
           <h1>{{ section.extra.intro_text | default(value="Merhaba! Ben Tunay.") }}</h1>
@@ -133,4 +163,5 @@
     </div>
   </div>
 </section>
+</div>
 {% endblock content %}

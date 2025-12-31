@@ -1,9 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  {{ page.title }}
-</h1>
-<p class="subtitle"><strong>{{ page.date }}</strong></p>
-{{ page.content | safe }}
+<section class="page blog-post-page" data-page="blog">
+  <div class="page-content">
+    <div class="hero">
+      <h1 class="hero-title">
+        <span class="title-line">
+          <span class="title-word gradient-text">{{ page.title }}</span>
+        </span>
+      </h1>
+      <p class="hero-subtitle" style="font-family: var(--font-mono); font-size: 0.9rem;">
+        {{ page.date }}
+      </p>
+    </div>
+
+    <div class="tiptap-content" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-2xl);">
+      {{ page.content | safe }}
+    </div>
+  </div>
+</section>
 {% endblock content %}

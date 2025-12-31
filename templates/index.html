@@ -1,8 +1,69 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  This is my blog made with Zola.
-</h1>
-<p>Click <a href="/blog/">here</a> to see my posts.</p>
+<section class="page home-page" data-page="home">
+  <div class="page-content">
+    <div class="hero">
+      <h1 class="hero-title">
+        <span class="title-line">
+          <span class="title-word">Building</span>
+        </span>
+        <span class="title-line">
+          <span class="title-word gradient-text">Digital</span>
+          <span class="title-word">Experiences</span>
+        </span>
+      </h1>
+      <p class="hero-subtitle">
+        Developer, security researcher, and digital craftsman. I create
+        elegant solutions for complex problems, blending technical precision
+        with aesthetic sensibility.
+      </p>
+      <div class="hero-cta">
+        <a href="{{ get_url(path="/projects") }}" class="cta-primary">
+          <span>View Projects</span>
+          <span class="cta-arrow">→</span>
+        </a>
+        <a href="{{ get_url(path="/blog") }}" class="cta-secondary">
+          Read My Writings
+        </a>
+      </div>
+    </div>
+
+    <div class="section-divider">
+      <span class="divider-text">latest works</span>
+    </div>
+
+    <div class="featured-grid">
+      <article class="featured-card">
+        <div class="card-glass">
+          <span class="card-label">Project</span>
+          <h3 class="card-title">OpenAuditKit</h3>
+          <p class="card-excerpt">
+            AI-powered security auditing toolkit for modern codebases.
+          </p>
+        </div>
+      </article>
+
+      <article class="featured-card">
+        <div class="card-glass">
+          <span class="card-label">Blog</span>
+          <h3 class="card-title">Building AI Security Tools</h3>
+          <p class="card-excerpt">
+            How machine learning revolutionizes code security analysis.
+          </p>
+        </div>
+      </article>
+
+      <article class="featured-card">
+        <div class="card-glass">
+          <span class="card-label">Poetry</span>
+          <h3 class="card-title">Binary Meditation</h3>
+          <p class="card-excerpt">
+            In the silence between keystrokes, algorithms dream of infinity...
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 {% endblock content %}

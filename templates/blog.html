@@ -1,12 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  {{ section.title }}
-</h1>
-<ul>
-  {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-  {% endfor %}
-</ul>
+<section class="page blog-page" data-page="blog">
+  <div class="page-content">
+    <div class="hero">
+      <h1 class="hero-title">
+        <span class="title-line">
+          <span class="title-word gradient-text">{{ section.title }}</span>
+        </span>
+      </h1>
+    </div>
+
+    <div class="featured-grid">
+      {% for page in section.pages %}
+      <a href="{{ page.permalink | safe }}" class="featured-card" style="text-decoration: none;">
+        <div class="card-glass">
+          <span class="card-label">{{ page.date }}</span>
+          <h3 class="card-title">{{ page.title }}</h3>
+          <p class="card-excerpt">
+            {{ page.description | default(value="Read more...") }}
+          </p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock content %}

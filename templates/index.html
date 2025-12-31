@@ -115,25 +115,28 @@
       </div>
 
       <!-- 2. ONLINE SECTION -->
-      <div class="bento-card online-card">
-        <div class="widget-last-played">
-          <span class="widget-label">Last played</span>
-          <div class="now-playing">
-            <div class="playing-icon">♫</div>
-            <div class="playing-info">
-              <span class="track-name">Not playing</span>
-              <span class="artist-name">Spotify/Steam API needed</span>
+      <div class="online-wrapper">
+        <!-- Last Played Card -->
+        <div class="info-card last-played-card">
+          <div class="widget-last-played">
+            <span class="widget-label">Last played</span>
+            <div class="now-playing">
+              <div class="playing-icon">♫</div>
+              <div class="playing-info">
+                <span class="track-name">Not playing</span>
+                <span class="artist-name">Spotify/Steam API needed</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="socials-section">
+        <!-- Socials Card -->
+        <div class="info-card socials-card">
           <h3>Socials</h3>
           <div class="socials-grid">
             {% if section.extra.socials %}
               {% for social in section.extra.socials %}
               <a href="{{ social.url }}" class="social-btn" target="_blank" rel="noopener">
-                <!-- Icon placeholder -->
                 <span class="social-icon">
                   {% if social.icon == "github" %}GH
                   {% elif social.icon == "twitter" %}TW
@@ -147,7 +150,8 @@
           </div>
         </div>
 
-        <div class="contacts-section">
+        <!-- Contacts Card -->
+        <div class="info-card contacts-card">
           <h3>Contacts</h3>
           <ul class="contacts-list">
             {% if section.extra.contacts %}
@@ -170,7 +174,7 @@
       </div>
 
       <!-- 3. WORKS SECTION -->
-      <div class="bento-card works-card">
+      <div class="info-card works-card">
         <h3>Works</h3>
         <div class="works-mini-grid">
           {% set projects = get_section(path="projects/_index.md") %}
@@ -187,7 +191,7 @@
       </div>
 
       <!-- 4. INDIEWEB SECTION -->
-      <div class="bento-card indieweb-card">
+      <div class="info-card indieweb-card">
         <h3>IndieWeb</h3>
         <p>{{ section.extra.indieweb.description | default(value="Web should be small, weird, and personal.") }}</p>
         <div class="badges-grid">

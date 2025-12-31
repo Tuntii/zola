@@ -881,9 +881,12 @@ pre:hover .copy-button {
   gap: var(--space-md);
 }
 
-.online-card {
+.online-wrapper {
   grid-column: 2 / 3;
   grid-row: 1 / 3; /* Tall column in middle */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
 .works-card {
@@ -897,10 +900,21 @@ pre:hover .copy-button {
 }
 
 /* ABOUT SECTION INTERNAL GRID */
+.about-title-area h2, .online-wrapper h3, .works-card h3, .indieweb-card h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+}
+
 .about-title-area h2 {
   font-size: 2rem;
   color: var(--color-accent);
   margin-bottom: 0.5rem;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .about-subtitle {
@@ -933,7 +947,39 @@ pre:hover .copy-button {
   border-color: var(--glass-highlight);
 }
 
-/* Bio Card */
+/* Last Played Card */
+.last-played-card {
+  padding: 0; /* Remove padding for inner widget */
+  overflow: hidden;
+}
+
+.widget-last-played {
+  background: transparent;
+  padding: var(--space-md);
+  border: none;
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-wrapper { grid-column: 1 / 2; grid-row: 1 / 2; }
+  .online-wrapper { grid-column: 2 / 3; grid-row: 1 / 2; }
+  .works-card { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .indieweb-card { grid-column: 2 / 3; grid-row: 2 / 3; }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-internal-grid {
+    grid-template-columns: 1fr; /* Stack internal about cards on mobile */
+  }
+}
 .bio-card {
   font-size: 0.95rem;
   line-height: 1.5;

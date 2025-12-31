@@ -10,15 +10,15 @@
       <!-- 1. ABOUT SECTION -->
       <div class="bento-card about-card">
         <div class="about-header">
-          <h1>{{ page.extra.intro_text | default(value="Merhaba! Ben Tunay.") }}</h1>
+          <h1>{{ section.extra.intro_text | default(value="Merhaba! Ben Tunay.") }}</h1>
         </div>
         
         <div class="about-content">
           <div class="likes-section">
             <h3>Random things I like</h3>
             <ul class="likes-list">
-              {% if page.extra.likes %}
-                {% for like in page.extra.likes %}
+              {% if section.extra.likes %}
+                {% for like in section.extra.likes %}
                 <li>{{ like.name }}</li>
                 {% endfor %}
               {% else %}
@@ -28,14 +28,14 @@
           </div>
           
           <blockquote class="shy-quote">
-            "{{ page.extra.quote | default(value="I'm rather shy...") }}"
+            "{{ section.extra.quote | default(value="I'm rather shy...") }}"
           </blockquote>
 
           <div class="games-section">
             <h3>Games I like</h3>
             <div class="games-grid">
-              {% if page.extra.games %}
-                {% for game in page.extra.games %}
+              {% if section.extra.games %}
+                {% for game in section.extra.games %}
                 <div class="game-item" title="{{ game.name }}">
                   <div class="game-cover" style="background-image: url('{{ game.image }}'); background-color: #333;"></div>
                 </div>
@@ -64,10 +64,17 @@
         <div class="socials-section">
           <h3>Socials</h3>
           <div class="socials-grid">
-            {% if page.extra.socials %}
-              {% for social in page.extra.socials %}
+            {% if section.extra.socials %}
+              {% for social in section.extra.socials %}
               <a href="{{ social.url }}" class="social-btn" target="_blank" rel="noopener">
-                {{ social.name }}
+                <!-- Icon placeholder -->
+                <span class="social-icon">
+                  {% if social.icon == "github" %}GH
+                  {% elif social.icon == "twitter" %}TW
+                  {% elif social.icon == "discord" %}DC
+                  {% else %}LINK{% endif %}
+                </span>
+                <span class="social-name">{{ social.name }}</span>
               </a>
               {% endfor %}
             {% endif %}
@@ -77,11 +84,18 @@
         <div class="contacts-section">
           <h3>Contacts</h3>
           <ul class="contacts-list">
-            {% if page.extra.contacts %}
-              {% for contact in page.extra.contacts %}
+            {% if section.extra.contacts %}
+              {% for contact in section.extra.contacts %}
               <li>
-                <span class="contact-label">{{ contact.name }}:</span>
-                <span class="contact-value">{{ contact.value }}</span>
+                <div class="contact-info">
+                  <span class="contact-icon">
+                    {% if contact.icon == "mail" %}@{
+                    {% elif contact.icon == "discord" %}#{
+                    {% else %}->{% endif %}
+                  </span>
+                  <span class="contact-value">{{ contact.value }}</span>
+                </div>
+                <span class="contact-label">{{ contact.name }}</span>
               </li>
               {% endfor %}
             {% endif %}
@@ -96,7 +110,9 @@
           {% set projects = get_section(path="projects/_index.md") %}
           {% for page in projects.pages | slice(end=4) %}
           <a href="{{ page.permalink }}" class="work-item">
-            <div class="work-icon">📂</div>
+            <div class="work-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </div>
             <span class="work-title">{{ page.title }}</span>
           </a>
           {% endfor %}
@@ -107,7 +123,7 @@
       <!-- 4. INDIEWEB SECTION -->
       <div class="bento-card indieweb-card">
         <h3>IndieWeb</h3>
-        <p>{{ page.extra.indieweb.description | default(value="Web should be small, weird, and personal.") }}</p>
+        <p>{{ section.extra.indieweb.description | default(value="Web should be small, weird, and personal.") }}</p>
         <div class="badges-grid">
           <div class="badge-placeholder">88x31</div>
           <div class="badge-placeholder">88x31</div>

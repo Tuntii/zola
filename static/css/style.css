@@ -783,6 +783,35 @@ pre:hover .copy-button {
   z-index: 5;
 }
 
+/* Status Cafe Widget Styling */
+#statuscafe {
+  padding: 1rem;
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  color: #333;
+  font-family: var(--font-mono);
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+#statuscafe-username {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #888;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#statuscafe-content {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #222;
+  font-family: 'Damion', cursive; /* Use the handwritten font for the status */
+}
+
 /* Responsive Hero */
 @media (max-width: 900px) {
   .hero-section {

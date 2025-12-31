@@ -22,17 +22,30 @@
       </p>
     </header>
 
-    <div class="featured-grid">
+    <div class="grid-container">
       {% for page in section.pages %}
-      <a href="{{ page.permalink | safe }}" class="featured-card" style="text-decoration: none;">
-        <div class="card-glass">
-          <div class="blog-meta" style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm); font-size: 0.8rem; color: var(--color-text-tertiary);">
-            <span class="blog-date" style="font-family: var(--font-mono);">{{ page.date }}</span>
+      <a href="{{ page.permalink | safe }}" class="modern-card {% if section.extra.page_class == 'projects' %}project-card{% elif section.extra.page_class == 'thoughts' %}thought-card{% endif %}">
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-date">{{ page.date }}</span>
+            {% if page.extra.category %}
+            <span class="card-category">{{ page.extra.category }}</span>
+            {% endif %}
           </div>
+          
           <h3 class="card-title">{{ page.title }}</h3>
+          
           <p class="card-excerpt">
-            {{ page.description | default(value="Devamını oku...") }}
+            {{ page.description | default(value="İçeriği görüntülemek için tıklayın...") }}
           </p>
+
+          {% if page.taxonomies.tags %}
+          <div class="card-tags">
+            {% for tag in page.taxonomies.tags %}
+            <span class="card-tag">#{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
         </div>
       </a>
       {% endfor %}

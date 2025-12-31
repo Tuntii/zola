@@ -23,13 +23,19 @@
     </header>
 
     <div class="grid-container">
-      {% if section.pages | length == 0 %}
+      {% if paginator %}
+        {% set pages = paginator.pages %}
+      {% else %}
+        {% set pages = section.pages %}
+      {% endif %}
+
+      {% if pages | length == 0 %}
       <div class="no-content">
         <p>Bu bölümde henüz içerik bulunmamaktadır.</p>
-        <!-- Debug: Section path: {{ section.path }}, Page count: {{ section.pages | length }} -->
       </div>
       {% endif %}
-      {% for page in section.pages %}
+
+      {% for page in pages %}
       <a href="{{ page.permalink | safe }}" class="modern-card {% if section.extra.page_class == 'projects' %}project-card{% elif section.extra.page_class == 'thoughts' %}thought-card{% endif %}">
         <div class="card-content">
           <div class="card-meta">
@@ -56,6 +62,17 @@
       </a>
       {% endfor %}
     </div>
+
+    {% if paginator %}
+    <div class="pagination" style="margin-top: var(--space-2xl); display: flex; justify-content: center; gap: var(--space-md);">
+      {% if paginator.previous %}
+      <a href="{{ paginator.previous }}" class="modern-card" style="padding: var(--space-sm) var(--space-md); width: auto;">&larr; Önceki</a>
+      {% endif %}
+      {% if paginator.next %}
+      <a href="{{ paginator.next }}" class="modern-card" style="padding: var(--space-sm) var(--space-md); width: auto;">Sonraki &rarr;</a>
+      {% endif %}
+    </div>
+    {% endif %}
   </div>
 </section>
 {% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page">
+  <div class="page-content">
+    <header class="section-header">
+      <span class="section-number">00</span>
+      <h2 class="section-title">Etiketler</h2>
+    </header>
+    
+    <div class="card-tags" style="margin-top: var(--space-xl);">
+      {% for term in terms %}
+      <a href="{{ term.permalink }}" class="card-tag" style="font-size: 1rem; padding: 8px 16px; text-decoration: none;">
+        #{{ term.name }} <span style="opacity: 0.6; margin-left: 4px;">({{ term.pages | length }})</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}

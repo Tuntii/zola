@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page">
+  <div class="page-content">
+    <header class="section-header">
+      <span class="section-number">00</span>
+      <h2 class="section-title">#{{ term.name }}</h2>
+      <p class="section-subtitle">{{ term.pages | length }} içerik bulundu</p>
+    </header>
+
+    <div class="grid-container">
+      {% for page in term.pages %}
+      <a href="{{ page.permalink | safe }}" class="modern-card">
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-date">{{ page.date }}</span>
+            {% if page.extra.category %}
+            <span class="card-category">{{ page.extra.category }}</span>
+            {% endif %}
+          </div>
+          
+          <h3 class="card-title">{{ page.title }}</h3>
+          
+          <p class="card-excerpt">
+            {{ page.description | default(value="İçeriği görüntülemek için tıklayın...") }}
+          </p>
+
+          {% if page.taxonomies.tags %}
+          <div class="card-tags">
+            {% for tag in page.taxonomies.tags %}
+            <span class="card-tag">#{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}

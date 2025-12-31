@@ -1,21 +1,34 @@
 {% extends "base.html" %}
 
+{% block data_page %}{{ section.extra.page_class | default(value="blog") }}{% endblock data_page %}
+
 {% block content %}
-<section class="page blog-page" data-page="{{ section.extra.page_class | default(value="blog") }}">
+<section class="page blog-page">
   <div class="page-content">
-    <div class="hero">
-      <h1 class="hero-title">
-        <span class="title-line">
-          <span class="title-word gradient-text">{{ section.title }}</span>
-        </span>
-      </h1>
-    </div>
+    <header class="section-header">
+      <span class="section-number">
+        {% if section.extra.page_class == "projects" %}01
+        {% elif section.extra.page_class == "blog" %}02
+        {% elif section.extra.page_class == "poetry" %}03
+        {% elif section.extra.page_class == "thoughts" %}04
+        {% else %}00{% endif %}
+      </span>
+      <h2 class="section-title">{{ section.title }}</h2>
+      <p class="section-subtitle">
+        {% if section.extra.page_class == "projects" %}Seçilmiş çalışmalar ve deneyler{% endif %}
+        {% if section.extra.page_class == "blog" %}Teknik yazılar ve keşifler{% endif %}
+        {% if section.extra.page_class == "poetry" %}Kod ve düzyazı arasındaki boşluk{% endif %}
+        {% if section.extra.page_class == "thoughts" %}Rastgele düşünceler ve fikirler{% endif %}
+      </p>
+    </header>
 
     <div class="featured-grid">
       {% for page in section.pages %}
       <a href="{{ page.permalink | safe }}" class="featured-card" style="text-decoration: none;">
         <div class="card-glass">
-          <span class="card-label">{{ page.date }}</span>
+          <div class="blog-meta" style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm); font-size: 0.8rem; color: var(--color-text-tertiary);">
+            <span class="blog-date" style="font-family: var(--font-mono);">{{ page.date }}</span>
+          </div>
           <h3 class="card-title">{{ page.title }}</h3>
           <p class="card-excerpt">
             {{ page.description | default(value="Devamını oku...") }}

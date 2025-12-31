@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="page blog-page" data-page="blog">
+<section class="page blog-page" data-page="{{ section.extra.page_class | default(value="blog") }}">
   <div class="page-content">
     <div class="hero">
       <h1 class="hero-title">
@@ -18,7 +18,7 @@
           <span class="card-label">{{ page.date }}</span>
           <h3 class="card-title">{{ page.title }}</h3>
           <p class="card-excerpt">
-            {{ page.description | default(value="Read more...") }}
+            {{ page.description | default(value="Devamını oku...") }}
           </p>
         </div>
       </a>

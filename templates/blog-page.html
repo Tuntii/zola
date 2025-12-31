@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="page blog-post-page" data-page="blog">
+{% set page_class = "blog" %}
+{% if page.path is starting_with("/projects") %}
+    {% set page_class = "projects" %}
+{% elif page.path is starting_with("/poetry") %}
+    {% set page_class = "poetry" %}
+{% elif page.path is starting_with("/thoughts") %}
+    {% set page_class = "thoughts" %}
+{% endif %}
+
+<section class="page blog-post-page" data-page="{{ page_class }}">
   <div class="page-content">
     <div class="hero">
       <h1 class="hero-title">

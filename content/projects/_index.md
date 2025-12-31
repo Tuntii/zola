@@ -1,8 +1,8 @@
 +++
-title = "Yazılar"
+title = "Projeler"
 sort_by = "date"
 template = "blog.html"
 page_template = "blog-page.html"
 [extra]
-page_class = "blog"
+page_class = "projects"
 +++

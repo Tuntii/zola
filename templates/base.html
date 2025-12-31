@@ -68,6 +68,11 @@
                     </div>
                 </div>
 
+                <div class="search-container" style="margin-bottom: 1rem; padding: 0 1.5rem; position: relative;">
+                    <input type="text" id="search-input" placeholder="Ara..." style="width: 100%; padding: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: white; font-family: var(--font-body);">
+                    <div id="search-results" style="display: none; position: absolute; top: 100%; left: 1.5rem; right: 1.5rem; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; max-height: 300px; overflow-y: auto; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"></div>
+                </div>
+
                 <nav class="sidebar-nav">
                     <a href="{{ config.base_url }}" class="nav-link {% if current_path is defined and current_path == "/" %}active{% endif %}">
                         <span class="nav-icon">
@@ -124,5 +129,7 @@
             {% block content %} {% endblock %}
         </main>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+    <script src="{{ get_url(path="js/main.js") }}"></script>
 </body>
 </html>

@@ -1,0 +1,247 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// CARDS - Card Components & Variants
+// ═══════════════════════════════════════════════════════════════════════════════
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GRID CONTAINER
+// ─────────────────────────────────────────────────────────────────────────────
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: space('lg');
+  margin-top: space('2xl');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MODERN CARD - Base Style
+// ─────────────────────────────────────────────────────────────────────────────
+
+.modern-card {
+  position: relative;
+  @include flex-column;
+  @include card-base;
+  overflow: hidden;
+  height: 100%;
+  text-decoration: none;
+  @include card-hover;
+
+  // Top glow line on hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    @include gradient-border;
+    opacity: 0;
+    @include transition-base;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.card-content {
+  padding: space('xl');
+  @include flex-column;
+  flex: 1;
+  z-index: 1;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CARD META & HEADER
+// ─────────────────────────────────────────────────────────────────────────────
+
+.card-meta {
+  @include flex-between;
+  margin-bottom: space('md');
+  @include mono-label;
+  color: color('text-tertiary');
+}
+
+.card-date {
+  display: flex;
+  align-items: center;
+  gap: space('xs');
+}
+
+.card-category {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CARD TYPOGRAPHY
+// ─────────────────────────────────────────────────────────────────────────────
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: space('md');
+  color: color('text-primary');
+  @include transition-base;
+
+  .modern-card:hover & {
+    color: var(--color-primary);
+  }
+}
+
+.card-excerpt {
+  font-size: 0.95rem;
+  color: color('text-secondary');
+  line-height: 1.6;
+  margin-bottom: space('lg');
+  flex: 1;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CARD TAGS
+// ─────────────────────────────────────────────────────────────────────────────
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space('sm');
+  margin-top: auto;
+}
+
+.card-tag {
+  font-family: font('mono');
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  background: color('glass-highlight');
+  border-radius: radius('sm');
+  color: color('text-tertiary');
+  @include transition-base;
+
+  .modern-card:hover & {
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PROJECT CARD VARIANT
+// ─────────────────────────────────────────────────────────────────────────────
+
+.project-card {
+  .card-title {
+    font-size: 1.75rem;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// THOUGHT CARD VARIANT
+// ─────────────────────────────────────────────────────────────────────────────
+
+.thought-card {
+  border-style: dashed;
+
+  .card-content {
+    justify-content: center;
+  }
+
+  .card-excerpt {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: color('text-primary');
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// FEATURED CARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: space('lg');
+}
+
+.featured-card {
+  position: relative;
+  height: 300px;
+  border-radius: radius('lg');
+  overflow: hidden;
+  cursor: pointer;
+  @include transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.card-glass {
+  position: absolute;
+  inset: 0;
+  background: color('glass-bg');
+  border: 1px solid color('glass-border');
+  padding: space('xl');
+  @include flex-column;
+  justify-content: flex-end;
+  @include transition-base;
+
+  .featured-card:hover & {
+    background: color('glass-highlight');
+    border-color: var(--color-primary-glow);
+  }
+}
+
+.card-label {
+  @include mono-label;
+  color: var(--color-primary);
+  margin-bottom: space('sm');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// INFO CARD (Bento Grid)
+// ─────────────────────────────────────────────────────────────────────────────
+
+.info-card {
+  background: color('glass-bg');
+  border: 1px solid color('glass-border');
+  border-radius: radius('md');
+  padding: space('md');
+  @include transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: color('glass-highlight');
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// BENTO CARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+.bento-card {
+  background: linear-gradient(145deg, color('glass-bg'), rgba(20, 20, 32, 0.8));
+  border: 1px solid color('glass-border');
+  border-radius: radius('lg');
+  padding: space('lg');
+  @include flex-column;
+  gap: space('md');
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  @include transition-base;
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border-color: color('glass-highlight');
+  }
+
+  h3 {
+    @include mono-label;
+    color: color('text-tertiary');
+    margin-bottom: space('xs');
+    font-weight: 600;
+  }
+}

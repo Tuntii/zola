@@ -31,10 +31,8 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ get_url(path="favicon.ico") }}">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ get_url(path="css/style.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="css/section-header.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="css/cards.css") }}">
+    <!-- Styles - SCSS compiled by Zola -->
+    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -129,7 +127,10 @@
             {% block content %} {% endblock %}
         </main>
     </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+    <script src="{{ get_url(path="js/animations.js") }}"></script>
     <script src="{{ get_url(path="js/main.js") }}"></script>
 </body>
 </html>

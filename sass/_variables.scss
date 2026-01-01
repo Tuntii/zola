@@ -1,0 +1,164 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// VARIABLES - Design Tokens & Theme Configuration
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─────────────────────────────────────────────────────────────────────────────
+// COLOR PALETTE - Base Colors
+// ─────────────────────────────────────────────────────────────────────────────
+
+$colors: (
+  // Dark backgrounds
+  'void': #0a0a0f,
+  'abyss': #0d0d14,
+  'charcoal': #141420,
+  'midnight': #1a1a2e,
+  'steel': #2a2a3d,
+  
+  // Primary theme (default - indigo)
+  'primary': #6366f1,
+  'primary-soft': rgba(99, 102, 241, 0.15),
+  'primary-glow': rgba(99, 102, 241, 0.4),
+  'secondary': #8b5cf6,
+  'accent': #a78bfa,
+  
+  // Text colors
+  'text-primary': rgba(255, 255, 255, 0.95),
+  'text-secondary': rgba(255, 255, 255, 0.7),
+  'text-tertiary': rgba(255, 255, 255, 0.45),
+  'text-ghost': rgba(255, 255, 255, 0.25),
+  'text-glow': rgba(167, 139, 250, 0.9),
+  
+  // Glass morphism
+  'glass-bg': rgba(20, 20, 32, 0.6),
+  'glass-border': rgba(255, 255, 255, 0.08),
+  'glass-highlight': rgba(255, 255, 255, 0.05),
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PAGE-SPECIFIC COLOR THEMES
+// ─────────────────────────────────────────────────────────────────────────────
+
+$page-themes: (
+  'home': (
+    'primary': #6366f1,
+    'secondary': #8b5cf6,
+    'accent': #a78bfa,
+    'glow': rgba(99, 102, 241, 0.4),
+  ),
+  'projects': (
+    'primary': #22d3ee,
+    'secondary': #06b6d4,
+    'accent': #67e8f9,
+    'glow': rgba(34, 211, 238, 0.4),
+  ),
+  'blog': (
+    'primary': #f472b6,
+    'secondary': #ec4899,
+    'accent': #f9a8d4,
+    'glow': rgba(244, 114, 182, 0.4),
+  ),
+  // ŞİİRLER - Koyu bordo/şarap renkleri + antik altın
+  'poetry': (
+    'primary': #8B3A3A,      // Koyu gül
+    'secondary': #722F37,    // Şarap kırmızısı
+    'accent': #C9A227,       // Antik altın
+    'glow': rgba(139, 58, 58, 0.5),
+    'bg-deep': #1A0A0A,      // Çok koyu bordo arka plan
+    'bg-mid': #2D1515,       // Orta bordo
+    'mist': rgba(201, 162, 39, 0.08), // Altın sis
+  ),
+  // DÜŞÜNCELER - Derin gece mavisi + ay ışığı
+  'thoughts': (
+    'primary': #64748B,      // Gümüş mavi
+    'secondary': #475569,    // Koyu arduvaz
+    'accent': #E2E8F0,       // Ay ışığı beyazı
+    'glow': rgba(100, 116, 139, 0.4),
+    'bg-deep': #0A1628,      // Derin gece
+    'bg-mid': #1A365D,       // Gece mavisi
+    'star': rgba(226, 232, 240, 0.8), // Yıldız parıltısı
+  ),
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// TYPOGRAPHY
+// ─────────────────────────────────────────────────────────────────────────────
+
+$fonts: (
+  'display': ('Space Grotesk', sans-serif),
+  'body': ('Space Grotesk', sans-serif),
+  'poetry': ('Cormorant Garamond', Georgia, serif),
+  'mono': ('JetBrains Mono', monospace),
+  'handwritten': ('Damion', cursive),
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SPACING SCALE
+// ─────────────────────────────────────────────────────────────────────────────
+
+$spacing: (
+  'xs': 0.25rem,   // 4px
+  'sm': 0.5rem,    // 8px
+  'md': 1rem,      // 16px
+  'lg': 1.5rem,    // 24px
+  'xl': 2rem,      // 32px
+  '2xl': 3rem,     // 48px
+  '3xl': 4rem,     // 64px
+  '4xl': 6rem,     // 96px
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// BORDER RADIUS
+// ─────────────────────────────────────────────────────────────────────────────
+
+$radius: (
+  'sm': 6px,
+  'md': 12px,
+  'lg': 20px,
+  'full': 9999px,
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// TRANSITIONS
+// ─────────────────────────────────────────────────────────────────────────────
+
+$transitions: (
+  'base': 300ms cubic-bezier(0.4, 0, 0.2, 1),
+  'slow': 500ms cubic-bezier(0.4, 0, 0.2, 1),
+  'page': 600ms cubic-bezier(0.4, 0, 0.2, 1),
+  'float': 6000ms ease-in-out,
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LAYOUT
+// ─────────────────────────────────────────────────────────────────────────────
+
+$sidebar-width: 260px;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HELPER FUNCTIONS
+// ─────────────────────────────────────────────────────────────────────────────
+
+@function color($name) {
+  @return map-get($colors, $name);
+}
+
+@function space($name) {
+  @return map-get($spacing, $name);
+}
+
+@function radius($name) {
+  @return map-get($radius, $name);
+}
+
+@function transition($name) {
+  @return map-get($transitions, $name);
+}
+
+@function font($name) {
+  @return map-get($fonts, $name);
+}
+
+@function page-color($page, $color) {
+  $theme: map-get($page-themes, $page);
+  @return map-get($theme, $color);
+}

@@ -1,0 +1,95 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// MAIN SCSS - Entry Point
+// Zola automatically compiles sass/main.scss to public/main.css
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─────────────────────────────────────────────────────────────────────────────
+// FONTS IMPORT
+// ─────────────────────────────────────────────────────────────────────────────
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono&family=Space+Grotesk:wght@300..700&family=Damion&display=swap');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CORE MODULES
+// ─────────────────────────────────────────────────────────────────────────────
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'animations';
+@use 'base';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// COMPONENTS
+// ─────────────────────────────────────────────────────────────────────────────
+
+@use 'components/sidebar';
+@use 'components/atmosphere';
+@use 'components/cards';
+@use 'components/hero';
+@use 'components/section-header';
+@use 'components/bento';
+@use 'components/typography';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SEARCH CONTAINER (inline override from base.html)
+// ─────────────────────────────────────────────────────────────────────────────
+
+.search-container {
+  position: relative;
+  
+  #search-input {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: white;
+    font-family: var(--font-body);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+  
+  #search-results {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    
+    a {
+      display: block;
+      padding: 0.5rem;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      
+      &:hover {
+        background: rgba(255,255,255,0.05);
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RESPONSIVE OVERRIDES
+// ─────────────────────────────────────────────────────────────────────────────
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+}

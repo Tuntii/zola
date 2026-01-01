@@ -1,0 +1,285 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// HERO - Hero Sections & Visual Elements
+// ═══════════════════════════════════════════════════════════════════════════════
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HERO SECTION - Main Layout
+// ─────────────────────────────────────────────────────────────────────────────
+
+.hero-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: space('4xl');
+  padding: space('2xl');
+  position: relative;
+  overflow: hidden;
+
+  @include tablet {
+    flex-direction: column;
+    text-align: center;
+    padding: space('xl') space('md');
+    gap: space('xl');
+  }
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+  @include flex-column;
+  align-items: flex-start;
+  z-index: 2;
+
+  @include tablet {
+    align-items: center;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HERO TYPOGRAPHY
+// ─────────────────────────────────────────────────────────────────────────────
+
+.hero-name {
+  font-family: 'Damion', cursive;
+  font-size: 6rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: space('md');
+  transform: rotate(-2deg);
+  text-shadow: 0 10px 30px rgba(142, 197, 252, 0.3);
+
+  @include tablet {
+    font-size: 4rem;
+  }
+}
+
+.hero-bio {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: color('text-secondary');
+  margin-bottom: space('xl');
+  max-width: 480px;
+
+  @include tablet {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HERO BUTTONS
+// ─────────────────────────────────────────────────────────────────────────────
+
+.hero-buttons {
+  display: flex;
+  gap: space('md');
+}
+
+.btn-hero {
+  padding: 12px 24px;
+  border-radius: radius('full');
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+
+  &.primary {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border: 1px solid rgba(255,255,255,0.1);
+    color: color('text-primary');
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+  }
+
+  &.secondary {
+    background: transparent;
+    color: color('text-secondary');
+    border: 1px solid transparent;
+
+    &:hover {
+      color: color('text-primary');
+      background: rgba(255,255,255,0.05);
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HERO VISUAL - Polaroid Card
+// ─────────────────────────────────────────────────────────────────────────────
+
+.hero-visual {
+  flex: 1;
+  @include flex-center;
+  z-index: 2;
+}
+
+.polaroid-card {
+  position: relative;
+  width: 280px;
+  background: #fff;
+  padding: 15px 15px 40px 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transform: rotate(3deg);
+  @include transition-base;
+  border-radius: 4px;
+
+  &:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
+  }
+}
+
+.polaroid-inner {
+  @include flex-column;
+}
+
+.polaroid-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: #222;
+  background-image: 
+    linear-gradient(45deg, #333 25%, transparent 25%), 
+    linear-gradient(-45deg, #333 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #333 75%), 
+    linear-gradient(-45deg, transparent 75%, #333 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+}
+
+.polaroid-caption {
+  color: #333;
+  font-family: font('mono');
+  @include flex-column;
+  gap: 4px;
+}
+
+.caption-title {
+  font-size: 0.6rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #999;
+}
+
+.caption-text {
+  font-family: 'Damion', cursive;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.caption-date {
+  font-size: 0.7rem;
+  color: #666;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.polaroid-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #ff7eb3, #d63384);
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  z-index: 5;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LEGACY HERO STYLES
+// ─────────────────────────────────────────────────────────────────────────────
+
+.hero {
+  margin-bottom: space('4xl');
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: space('xl');
+  letter-spacing: -0.02em;
+
+  @include mobile {
+    font-size: 3rem;
+  }
+}
+
+.title-line {
+  display: block;
+  overflow: hidden;
+}
+
+.title-word {
+  display: inline-block;
+}
+
+.gradient-text {
+  @include gradient-text;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: color('text-secondary');
+  max-width: 600px;
+  margin-bottom: space('2xl');
+  line-height: 1.8;
+}
+
+.hero-cta {
+  display: flex;
+  gap: space('lg');
+  align-items: center;
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: space('sm');
+  padding: space('md') space('xl');
+  background: var(--color-primary);
+  color: white;
+  border-radius: radius('full');
+  text-decoration: none;
+  font-weight: 500;
+  @include transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px var(--color-primary-glow);
+  }
+}
+
+.cta-arrow {
+  @include transition-base;
+
+  .cta-primary:hover & {
+    transform: translateX(4px);
+  }
+}
+
+.cta-secondary {
+  color: color('text-primary');
+  text-decoration: none;
+  font-weight: 500;
+  padding: space('md');
+  @include transition-base;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}

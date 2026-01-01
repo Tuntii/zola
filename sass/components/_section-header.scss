@@ -1,0 +1,96 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// SECTION HEADER - Section Titles & Dividers
+// ═══════════════════════════════════════════════════════════════════════════════
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SECTION HEADER
+// ─────────────────────────────────────────────────────────────────────────────
+
+.section-header {
+  margin-bottom: space('4xl');
+  position: relative;
+  padding-top: space('xl');
+  @include flex-column;
+  align-items: flex-start;
+}
+
+.section-number {
+  font-family: font('display');
+  font-size: 15rem;
+  font-weight: 800;
+  line-height: 0.8;
+  position: absolute;
+  top: -5rem;
+  left: -1rem;
+  z-index: -1;
+  opacity: 0.04;
+  color: color('text-primary');
+  pointer-events: none;
+  user-select: none;
+
+  @include mobile {
+    font-size: 8rem;
+    top: -2rem;
+  }
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: space('lg');
+  @include gradient-text(135deg, color('text-primary'), color('text-secondary'));
+  position: relative;
+
+  @include mobile {
+    font-size: 2.5rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 80px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: radius('full');
+    box-shadow: 0 0 20px var(--color-primary-glow);
+  }
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: color('text-secondary');
+  max-width: 500px;
+  line-height: 1.7;
+  padding-left: space('xl');
+  border-left: 2px solid color('glass-border');
+  margin-left: space('xs');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SECTION DIVIDER
+// ─────────────────────────────────────────────────────────────────────────────
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  margin: space('4xl') 0 space('2xl');
+
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: color('glass-border');
+    margin-left: space('lg');
+  }
+}
+
+.divider-text {
+  @include mono-label;
+  color: color('text-tertiary');
+}

@@ -1,0 +1,339 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// ATMOSPHERE - Background Effects & Living Backgrounds
+// ═══════════════════════════════════════════════════════════════════════════════
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// BASE ATMOSPHERE CONTAINER
+// ─────────────────────────────────────────────────────────────────────────────
+
+.atmosphere {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GRADIENT ORBS - Base Style
+// ─────────────────────────────────────────────────────────────────────────────
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  will-change: transform;
+}
+
+.orb-1 {
+  top: -10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: var(--color-primary-glow);
+}
+
+.orb-2 {
+  bottom: -10%;
+  left: 20%;
+  width: 500px;
+  height: 500px;
+  background: rgba(var(--color-secondary), 0.3);
+}
+
+.orb-3 {
+  top: 40%;
+  right: 30%;
+  width: 400px;
+  height: 400px;
+  background: rgba(var(--color-accent), 0.2);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// NOISE OVERLAY
+// ─────────────────────────────────────────────────────────────────────────────
+
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ŞİİRLER - POETRY PAGE ATMOSPHERE
+// Koyu bordo/şarap renkleri, sis efekti, eski kitap hissi
+// ═══════════════════════════════════════════════════════════════════════════════
+
+[data-page="poetry"] {
+  // Arka plan rengini değiştir
+  background: linear-gradient(
+    180deg,
+    #{page-color('poetry', 'bg-deep')} 0%,
+    #{page-color('poetry', 'bg-mid')} 50%,
+    #{page-color('poetry', 'bg-deep')} 100%
+  );
+
+  .atmosphere {
+    // Eski kağıt kenar efekti
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 150px rgba(26, 10, 10, 0.9);
+      animation: poetry-paper-edge 8s infinite ease-in-out;
+      pointer-events: none;
+    }
+  }
+
+  // Bordo orb'lar
+  .gradient-orb {
+    filter: blur(120px);
+    opacity: 0.3;
+  }
+
+  .orb-1 {
+    background: radial-gradient(
+      circle,
+      rgba(139, 58, 58, 0.6) 0%,
+      rgba(114, 47, 55, 0.3) 50%,
+      transparent 70%
+    );
+  }
+
+  .orb-2 {
+    background: radial-gradient(
+      circle,
+      rgba(201, 162, 39, 0.2) 0%,
+      rgba(201, 162, 39, 0.1) 50%,
+      transparent 70%
+    );
+  }
+
+  .orb-3 {
+    background: radial-gradient(
+      circle,
+      rgba(139, 58, 58, 0.4) 0%,
+      transparent 60%
+    );
+  }
+
+  // Sis/buğu katmanı
+  .noise-overlay {
+    opacity: 0.5;
+    background-image: 
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E"),
+      linear-gradient(0deg, rgba(201, 162, 39, 0.03) 0%, transparent 50%);
+  }
+}
+
+// Poetry particle container
+.poetry-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.poetry-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(
+    circle,
+    #{page-color('poetry', 'accent')} 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0;
+  animation: poetry-particle-drift 15s infinite linear;
+  
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+      left: #{random(100)}%;
+      bottom: -10px;
+      animation-delay: #{$i * 1.2}s;
+      animation-duration: #{12 + random(8)}s;
+    }
+  }
+}
+
+// Poetry shimmer effect
+.poetry-shimmer {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    #{page-color('poetry', 'accent')} 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  opacity: 0.2;
+  animation: poetry-shimmer 6s infinite ease-in-out;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// DÜŞÜNCELER - THOUGHTS PAGE ATMOSPHERE
+// Derin gece mavisi, ay ışığı, yıldız parıltısı
+// ═══════════════════════════════════════════════════════════════════════════════
+
+[data-page="thoughts"] {
+  // Gece gökyüzü arka planı
+  background: linear-gradient(
+    180deg,
+    #{page-color('thoughts', 'bg-deep')} 0%,
+    #{page-color('thoughts', 'bg-mid')} 40%,
+    #{page-color('thoughts', 'bg-deep')} 100%
+  );
+
+  .atmosphere {
+    // Ay ışığı halo efekti
+    &::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(
+        circle,
+        rgba(226, 232, 240, 0.08) 0%,
+        rgba(226, 232, 240, 0.02) 40%,
+        transparent 70%
+      );
+      animation: thoughts-moonlight 10s infinite ease-in-out;
+      pointer-events: none;
+    }
+  }
+
+  // Gece mavisi orb'lar
+  .gradient-orb {
+    filter: blur(100px);
+    opacity: 0.25;
+  }
+
+  .orb-1 {
+    background: radial-gradient(
+      circle,
+      rgba(100, 116, 139, 0.5) 0%,
+      rgba(71, 85, 105, 0.2) 50%,
+      transparent 70%
+    );
+    animation: thoughts-nebula 25s infinite ease-in-out;
+  }
+
+  .orb-2 {
+    background: radial-gradient(
+      circle,
+      rgba(26, 54, 93, 0.6) 0%,
+      rgba(26, 54, 93, 0.2) 50%,
+      transparent 70%
+    );
+    animation: thoughts-breathe 8s infinite ease-in-out;
+  }
+
+  .orb-3 {
+    background: radial-gradient(
+      circle,
+      rgba(226, 232, 240, 0.1) 0%,
+      transparent 60%
+    );
+    animation: thoughts-wave 12s infinite ease-in-out;
+  }
+
+  // Koyu gece noise
+  .noise-overlay {
+    opacity: 0.3;
+    mix-blend-mode: soft-light;
+  }
+}
+
+// Yıldız container
+.thoughts-stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.thoughts-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #{page-color('thoughts', 'star')};
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: thoughts-twinkle 3s infinite ease-in-out;
+  
+  @for $i from 1 through 25 {
+    &:nth-child(#{$i}) {
+      top: #{random(100)}%;
+      left: #{random(100)}%;
+      animation-delay: #{random(30) / 10}s;
+      animation-duration: #{2 + random(3)}s;
+      width: #{1 + random(2)}px;
+      height: #{1 + random(2)}px;
+    }
+  }
+}
+
+// Büyük parlak yıldızlar
+.thoughts-star-bright {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #{page-color('thoughts', 'accent')};
+  border-radius: 50%;
+  box-shadow: 
+    0 0 6px #{page-color('thoughts', 'accent')},
+    0 0 12px rgba(226, 232, 240, 0.5);
+  animation: thoughts-twinkle 4s infinite ease-in-out;
+}
+
+// Nebula bulut efekti
+.thoughts-nebula-cloud {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: thoughts-nebula 20s infinite ease-in-out;
+  
+  &.cloud-1 {
+    top: 10%;
+    left: 20%;
+    width: 400px;
+    height: 300px;
+    background: linear-gradient(
+      135deg,
+      rgba(100, 116, 139, 0.3) 0%,
+      rgba(71, 85, 105, 0.1) 100%
+    );
+  }
+  
+  &.cloud-2 {
+    bottom: 20%;
+    right: 15%;
+    width: 350px;
+    height: 250px;
+    background: linear-gradient(
+      45deg,
+      rgba(26, 54, 93, 0.3) 0%,
+      rgba(100, 116, 139, 0.1) 100%
+    );
+    animation-delay: -10s;
+  }
+}

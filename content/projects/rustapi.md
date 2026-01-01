@@ -18,6 +18,8 @@ Yüksek performanslı ve tip güvenli web API'leri yazmanın, karmaşık trait s
 - **API Tasarımı Birinci Sınıftır:** Şemanızı tanımlayın, doğrulama ve OpenAPI dokümantasyonunu framework halletsin.
 - **Motor Soyutlanmıştır:** Dahili olarak `tokio`, `hyper` ve `matchit` gibi endüstri standartlarına dayanır, ancak kararlı ve kullanıcı odaklı bir API sunar.
 - **Sıfır Boilerplate:** Extractor'lar ve makrolar ağır işi yapar.
+- **Yüksek Performans:** Minimum ek yük ile hızlı ve asenkron.
+- **Yüksek IO** : Gerçek dünya uygulamaları için tasarlanmıştır.
 
 ## Özellikler ✨
 
@@ -27,6 +29,9 @@ Yüksek performanslı ve tip güvenli web API'leri yazmanın, karmaşık trait s
 - **✅ Dahili Doğrulama:** Yapılarınıza `#[validate(email)]` ekleyin ve otomatik 422 hata yönetimi elde edin.
 - **🧩 Sezgisel Yönlendirme:** `#[rustapi::get]`, `#[rustapi::post]` gibi basit makrolarla Radix-tree tabanlı yönlendirme.
 - **🔋 Piller Dahil:** Middleware, JWT kimlik doğrulama, CORS, hız sınırlama (rate limiting) ve yapılandırma yönetimi.
+- **📦 Modüler Tasarım:** İhtiyacınız olan özellikleri seçin, gereksiz bağımlılıklardan kaçının.
+- **🧑‍💻 Geliştirici Dostu:** Geliştirici deneyimi ön planda tutulmuştur; sezgisel API'ler ve kapsamlı belgeler.
+- **🧙 Toon Desteği** : RustAPI, gelişmiş LLM ve MCP desteği ile TOON ekosistemine sorunsuz entegrasyon sağlar.
 
 ## Hızlı Başlangıç 📦
 
@@ -68,6 +73,15 @@ async fn main() -> Result<()> {
         .await
 }
 ```
+
+
+## Gelecek Planları 📅
+
+- **WebSocket Desteği:** Gerçek zamanlı uygulamalar için WebSocket entegrasyonu.
+- **Gelişmiş Orta Katman (Middleware) Desteği:** Özelleştirilmiş middleware oluşturma yetenekleri.
+- **Veritabanı Entegrasyonları:** Popüler ORM'ler ve veritabanları için resmi destek.
+- **Topluluk Katkıları:** Açık kaynak topluluğunun katkılarını teşvik etmek ve desteklemek.
+
 
 ## Mimari 🏗️
 

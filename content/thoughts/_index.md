@@ -1,7 +1,7 @@
 +++
 title = "Düşünceler"
 sort_by = "date"
-template = "blog.html"
+template = "thoughts.html"
 page_template = "blog-page.html"
 [extra]
 page_class = "thoughts"

@@ -1,0 +1,15 @@
+{
+    "github.copilot.inlineSuggest.enable": true,
+    "github.copilot.suggestionDelay": 75,
+    "github.copilot.advanced": {
+        "enableTelemetry": false
+    },
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "comments": false,
+            "strings": false,
+            "other": false
+        },
+        "editor.suggest.showWords": false
+    }
+}

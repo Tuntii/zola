@@ -105,18 +105,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Online Section: Istanbul clock + presence
     const istanbulTimeEl = document.getElementById('istanbul-time');
     const presenceStatusEl = document.getElementById('presence-status');
+    const fediringTimeEl = document.getElementById('fediring-time');
 
     const updateIstanbulClock = () => {
-        if (!istanbulTimeEl) return;
-
         const now = new Date();
-        const formatter = new Intl.DateTimeFormat('tr-TR', {
-            timeZone: 'Europe/Istanbul',
-            hour: '2-digit',
-            minute: '2-digit',
-        });
+        if (istanbulTimeEl) {
+            const formatter = new Intl.DateTimeFormat('tr-TR', {
+                timeZone: 'Europe/Istanbul',
+                hour: '2-digit',
+                minute: '2-digit',
+            });
+            istanbulTimeEl.textContent = formatter.format(now);
+        }
 
-        istanbulTimeEl.textContent = formatter.format(now);
+        if (fediringTimeEl) {
+            const parts = new Intl.DateTimeFormat('en-US', {
+                timeZone: 'Europe/Istanbul',
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false,
+            }).formatToParts(now);
+
+            const get = (type) => parts.find(p => p.type === type)?.value || '';
+            const day = get('day');
+            const month = get('month').toUpperCase();
+            const year = get('year');
+            const hour = get('hour');
+            const minute = get('minute');
+
+            fediringTimeEl.textContent = `${day} ${month} ${year}, ${hour}:${minute} (GMT+3)`;
+        }
 
         if (presenceStatusEl) {
             const hourStr = new Intl.DateTimeFormat('en-US', {

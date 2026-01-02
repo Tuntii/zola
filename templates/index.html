@@ -111,95 +111,10 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- 2. ONLINE SECTION -->
-      <div class="online-wrapper">
-        <!-- Last Played Card -->
-        <div class="info-card last-played-card">
-          <div class="widget-last-played">
-            <span class="widget-label">Last played</span>
-            <div class="now-playing">
-              <div class="playing-icon">♫</div>
-              <div class="playing-info">
-                <span class="track-name">Not playing</span>
-                <span class="artist-name">Spotify/Steam API needed</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Socials & Contacts Card (Combined) -->
-        <div class="info-card socials-contacts-card">
-          <div class="socials-section">
-            <h3>Socials</h3>
-            <div class="socials-grid">
-              {% if section.extra.socials %}
-                {% for social in section.extra.socials %}
-                <a href="{{ social.url }}" class="social-btn" target="_blank" rel="noopener">
-                  <span class="social-icon">
-                    {% if social.icon == "github" %}GH
-                    {% elif social.icon == "twitter" %}TW
-                    {% elif social.icon == "discord" %}DC
-                    {% else %}LINK{% endif %}
-                  </span>
-                  <span class="social-name">{{ social.name }}</span>
-                </a>
-                {% endfor %}
-              {% endif %}
-            </div>
-          </div>
           
-          <div class="contacts-section">
-            <h3>Contacts</h3>
-            <div class="contacts-compact">
-              {% if section.extra.contacts %}
-                {% for contact in section.extra.contacts %}
-                <div class="contact-item">
-                  <span class="contact-icon">
-                    {% if contact.icon == "mail" %}✉
-                    {% elif contact.icon == "discord" %}💬
-                    {% else %}→{% endif %}
-                  </span>
-                  <div class="contact-details">
-                    <span class="contact-value">{{ contact.value }}</span>
-                    <span class="contact-label">{{ contact.name }}</span>
-                  </div>
-                </div>
-                {% endfor %}
-              {% endif %}
-            </div>
-          </div>
         </div>
       </div>
 
-      <!-- 3. WORKS SECTION -->
-      <div class="info-card works-card">
-        <h3>Works</h3>
-        <div class="works-mini-grid">
-          {% set projects = get_section(path="projects/_index.md") %}
-          {% for page in projects.pages | slice(end=4) %}
-          <a href="{{ page.permalink }}" class="work-item">
-            <div class="work-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-            </div>
-            <span class="work-title">{{ page.title }}</span>
-          </a>
-          {% endfor %}
-        </div>
-        <a href="{{ get_url(path='/projects') }}" class="view-all-link">View all →</a>
-      </div>
-
-      <!-- 4. INDIEWEB SECTION -->
-      <div class="info-card indieweb-card">
-        <h3>IndieWeb</h3>
-        <p>{{ section.extra.indieweb.description | default(value="Web should be small, weird, and personal.") }}</p>
-        <div class="badges-grid">
-          <div class="badge-placeholder">88x31</div>
-          <div class="badge-placeholder">88x31</div>
-        </div>
-      </div>
 
     </div>
   </div>

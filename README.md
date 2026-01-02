@@ -17,3 +17,18 @@ You can deploy your new Zola project with a single command from your terminal us
 ```shell
 $ vercel
 ```
+
+### Spotify (Online section)
+
+Ana sayfadaki **Online** bölümünde Spotify “şu an çalıyor / son çalınan” kartı için Vercel Serverless endpoint'i kullanılır: `/api/now-playing`.
+
+Vercel Project Environment Variables:
+
+- `SPOTIFY_CLIENT_ID`
+- `SPOTIFY_CLIENT_SECRET`
+- `SPOTIFY_REFRESH_TOKEN`
+
+Refresh token şu scope’lara sahip olmalı:
+
+- `user-read-currently-playing`
+- `user-read-recently-played`

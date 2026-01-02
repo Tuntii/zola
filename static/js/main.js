@@ -101,4 +101,86 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Online Section: Istanbul clock + presence
+    const istanbulTimeEl = document.getElementById('istanbul-time');
+    const presenceStatusEl = document.getElementById('presence-status');
+
+    const updateIstanbulClock = () => {
+        if (!istanbulTimeEl) return;
+
+        const now = new Date();
+        const formatter = new Intl.DateTimeFormat('tr-TR', {
+            timeZone: 'Europe/Istanbul',
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+
+        istanbulTimeEl.textContent = formatter.format(now);
+
+        if (presenceStatusEl) {
+            const hourStr = new Intl.DateTimeFormat('en-US', {
+                timeZone: 'Europe/Istanbul',
+                hour: '2-digit',
+                hour12: false,
+            }).format(now);
+            const hour = Number(hourStr);
+
+            // Simple heuristic: late night = AFK, otherwise IDLE
+            presenceStatusEl.textContent = (hour >= 1 && hour < 8) ? 'AFK' : 'IDLE';
+        }
+    };
+
+    updateIstanbulClock();
+    setInterval(updateIstanbulClock, 1000);
+
+    // Online Section: Spotify now playing / last played
+    const spotifyTitleEl = document.getElementById('spotify-title');
+    const spotifyArtistEl = document.getElementById('spotify-artist');
+    const spotifyStatusEl = document.getElementById('spotify-status');
+    const spotifyCoverEl = document.getElementById('spotify-cover');
+    const spotifyLinkEl = document.getElementById('spotify-link');
+
+    const renderSpotify = (data) => {
+        if (!spotifyTitleEl || !spotifyStatusEl) return;
+
+        if (!data || data.ok === false) {
+            spotifyTitleEl.textContent = 'Spotify bağlanamadı';
+            if (spotifyArtistEl) spotifyArtistEl.textContent = '';
+            spotifyStatusEl.textContent = 'Şu an veri alınamıyor';
+            if (spotifyLinkEl) spotifyLinkEl.style.display = 'none';
+            return;
+        }
+
+        spotifyTitleEl.textContent = data.title || 'Bilinmeyen parça';
+        if (spotifyArtistEl) spotifyArtistEl.textContent = data.artist || '';
+
+        const statusText = data.isPlaying ? 'Şu an çalıyor' : 'Son çalınan';
+        spotifyStatusEl.textContent = statusText;
+
+        if (spotifyCoverEl && data.albumImageUrl) {
+            spotifyCoverEl.style.backgroundImage = `url('${data.albumImageUrl}')`;
+        }
+
+        if (spotifyLinkEl && data.songUrl) {
+            spotifyLinkEl.href = data.songUrl;
+            spotifyLinkEl.style.display = 'inline-flex';
+        } else if (spotifyLinkEl) {
+            spotifyLinkEl.style.display = 'none';
+        }
+    };
+
+    const fetchSpotify = async () => {
+        if (!spotifyTitleEl) return;
+        try {
+            const response = await fetch('/api/now-playing', { cache: 'no-store' });
+            const json = await response.json();
+            renderSpotify(json);
+        } catch (e) {
+            renderSpotify({ ok: false });
+        }
+    };
+
+    fetchSpotify();
+    setInterval(fetchSpotify, 30000);
 });

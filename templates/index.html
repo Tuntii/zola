@@ -36,7 +36,7 @@
     <div class="page-content">
       <header class="section-header">
         <span class="section-number">01</span>
-        <h2 class="section-title">About</h2>
+        <h2 class="section-title">Hakkımda</h2>
         <p class="section-subtitle">
           İnternetin hızlı akışına karşı; yavaş, meraklı ve düzenli bir not defteri.
           Burada güvenlik, yazılım ve küçük günlük parçaları yan yana duruyor.
@@ -59,15 +59,13 @@
 
             <div class="about-card">
               <h3 class="about-heading">Sevdiğim Rastgele Şeyler</h3>
-              <ul class="likes-list-vertical likes-staircase">
+              <ul class="likes-list-vertical">
                 <li>Mor tonları</li>
                 <li>Easter egg’ler</li>
                 <li>Minimal tasarımlar</li>
                 <li>Temiz kod</li>
                 <li>Komut satırı araçları</li>
                 <li>Analog fotoğrafçılık</li>
-                <li>Bulut tabanlı self-hosting</li>
-                <li>Retro oyunlar</li>
               </ul>
             </div>
 
@@ -128,6 +126,95 @@
             </div>
           </aside>
         </div>
+    </div>
+  </section>
+
+  <!-- ONLINE SECTION -->
+  <section id="online" class="page home-online">
+    <div class="page-content">
+      <header class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Online</h2>
+        <p class="section-subtitle">
+          Bazen görünür, bazen sessiz. Burada “şu an ne çalıyor”, nerelerde varım ve nasıl ulaşılır hepsi tek yerde.
+        </p>
+      </header>
+
+      <div class="online-layout">
+        <div class="online-left">
+          <div class="online-card spotify-card" aria-live="polite">
+            <div class="spotify-top">
+              <div class="spotify-cover" id="spotify-cover" aria-hidden="true"></div>
+              <div class="spotify-meta">
+                <div class="spotify-label">Spotify</div>
+                <div class="spotify-title" id="spotify-title">Yükleniyor…</div>
+                <div class="spotify-artist" id="spotify-artist"></div>
+                <a class="spotify-link" id="spotify-link" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Aç →</a>
+              </div>
+            </div>
+            <div class="spotify-status" id="spotify-status">Son çalınan şarkı çekiliyor</div>
+          </div>
+
+          <div class="online-card">
+            <div class="online-card-header">
+              <h3 class="online-heading">Sosyal Medya</h3>
+              <span class="online-hint">hızlı bağlantılar</span>
+            </div>
+            <div class="socials-grid">
+              <a class="social-btn" href="https://github.com/Tuntii" target="_blank" rel="noopener noreferrer">
+                <span class="social-icon">GH</span>
+                <span>GitHub</span>
+              </a>
+              <a class="social-btn" href="https://www.linkedin.com/in/tunay-engin" target="_blank" rel="noopener noreferrer">
+                <span class="social-icon">IN</span>
+                <span>LinkedIn</span>
+              </a>
+              <a class="social-btn" href="{{ get_url(path='/blog') }}">
+                <span class="social-icon">TX</span>
+                <span>Yazılar</span>
+              </a>
+              <a class="social-btn" href="{{ get_url(path='/projects') }}">
+                <span class="social-icon">PR</span>
+                <span>Projeler</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="online-right">
+          <div class="online-card contact-card">
+            <div class="contact-top">
+              <div class="contact-clock">
+                <div class="clock-label">İstanbul</div>
+                <div class="clock-time" id="istanbul-time">--:--</div>
+                <div class="clock-tz">GMT+3</div>
+              </div>
+              <div class="presence" aria-label="Presence">
+                <span class="presence-dot" aria-hidden="true"></span>
+                <span class="presence-text" id="presence-status">IDLE</span>
+              </div>
+            </div>
+
+            <h3 class="online-heading">Contact</h3>
+            <p class="contact-desc">
+              En hızlı yol: GitHub/LinkedIn. Mesaj bırakmak istersen aşağıdaki kanalların hepsi uygun.
+            </p>
+
+            <div class="contact-links">
+              <a class="contact-link" href="https://github.com/Tuntii" target="_blank" rel="noopener noreferrer">GitHub DM / Issues</a>
+              <a class="contact-link" href="https://www.linkedin.com/in/tunay-engin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="contact-link" href="mailto:hello@tunti.dev">Email</a>
+            </div>
+          </div>
+
+          <div class="online-card">
+            <h3 class="online-heading">Small Notes</h3>
+            <p class="online-note">
+              Genelde yanıtlarım kısa ve net olur. Eğer detay gerekiyorsa, bağlamı yazınca hızlanıyorum.
+            </p>
+          </div>
+        </aside>
+      </div>
     </div>
   </section>
 </div>

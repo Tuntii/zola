@@ -817,6 +817,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   z-index: 2;
+  padding: var(--space-4xl);
 }
 
 .hero-name {
@@ -1582,18 +1583,6 @@ pre:hover .copy-button {
   opacity: 1;
 }
 
-.tag {
-  padding: 0.2rem 0.5rem;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 4px;
-  font-size: 0.8rem;
-  transition: background 0.2s;
-}
-
-.tag:hover {
-  background: rgba(99, 102, 241, 0.2);
-}
-
 // ─────────────────────────────────────────────────────────────────────────────
 // SEARCH
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1664,6 +1653,7 @@ pre:hover .copy-button {
   
   .hero-content {
     align-items: center;
+    padding: var(--space-xl) var(--space-md);
   }
   
   .hero-name {

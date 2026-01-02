@@ -6,7 +6,7 @@
 <div class="home-container">
   <!-- HERO SECTION -->
   <section class="hero-section">
-    <div class="hero-content" style="padding: 100px">
+    <div class="hero-content">
       <h1 class="hero-name">Tunti35</h1>
       <p class="hero-bio">
         {{ section.extra.intro_text | default(value="Greetings! Welcome to my little corner on the World Wide Web.") }}
@@ -27,6 +27,161 @@
           <script src="https://status.cafe/current-status.js?name=tunti35" defer></script>
         </div>
         <div class="polaroid-pin"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="page home-about">
+    <div class="page-content">
+      <header class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">
+          İnternetin hızlı akışına karşı; yavaş, meraklı ve düzenli bir not defteri.
+          Burada güvenlik, yazılım ve küçük günlük parçaları yan yana duruyor.
+        </p>
+      </header>
+
+      <div class="bento-grid">
+        <div class="about-wrapper">
+          <div class="bento-card about-title-area">
+            <h2>Ben kimim?</h2>
+            <p class="about-subtitle">
+              Üreten, bozan, düzelten. Çoğu zaman minimal çözümler; bazen de aşırı merak.
+              Bu site, o merakın derli toplu arşivi.
+            </p>
+          </div>
+
+          <div class="about-internal-grid">
+            <div class="about-col">
+              <div class="bento-card bio-card">
+                Şu sıralar çoğunlukla: Rust/JS, web güvenliği, otomasyon ve küçük araçlar.
+                Sevdiğim şey: bir problemi en sade haline indirip tekrar kurmak.
+              </div>
+
+              <div class="bento-card terminal-card">
+                <div class="terminal-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="terminal-title">about.sh</span>
+                </div>
+                <div class="terminal-body">
+                  <div class="code-line"><span class="prompt">$</span><span class="cmd">focus</span></div>
+                  <div class="code-line"><span class="output">security • tooling • writing</span></div>
+                  <div class="code-line"><span class="prompt">$</span><span class="cmd">principles</span></div>
+                  <div class="code-line"><span class="output">clean UI, sharp notes, fewer moving parts</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-col">
+              <div class="bento-card">
+                <h3>Random things I like</h3>
+                <ul class="likes-list-vertical">
+                  <li>Mor tonları (özellikle sakin lavanta)</li>
+                  <li>Monospace + iyi bir terminal hissi</li>
+                  <li>Pencereden görünen küçük ayrıntılar</li>
+                  <li>Minör referanslar, easter egg’ler</li>
+                  <li>Retro-fütüristik detaylar</li>
+                  <li>Listelerin biraz “staircase” görünmesi</li>
+                </ul>
+              </div>
+
+              <div class="bento-card">
+                <h3>Not</h3>
+                <p class="shy-quote">
+                  “İlk bakışta mesafeli görünebilirim; ama ısındıkça daha çok konuşurum.”
+                </p>
+                <p style="color: var(--color-text-tertiary); font-size: 0.9rem;">
+                  Bu yüzden yazılar çoğu zaman “net” ve “kısa” kalır.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="online-wrapper">
+          <div class="bento-card">
+            <h3>Online</h3>
+            <div class="socials-grid">
+              <a class="social-btn" href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <span class="social-icon">GH</span>
+                <span>GitHub</span>
+              </a>
+              <a class="social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <span class="social-icon">IN</span>
+                <span>LinkedIn</span>
+              </a>
+              <a class="social-btn" href="{{ get_url(path='/blog') }}">
+                <span class="social-icon">TX</span>
+                <span>Yazılar</span>
+              </a>
+              <a class="social-btn" href="{{ get_url(path='/projects') }}">
+                <span class="social-icon">PR</span>
+                <span>Projeler</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <h3>Small badges</h3>
+            <div class="badges-grid">
+              <div class="badge-placeholder">SEC</div>
+              <div class="badge-placeholder">RUST</div>
+              <div class="badge-placeholder">WEB</div>
+              <div class="badge-placeholder">OSS</div>
+              <div class="badge-placeholder">NOTES</div>
+              <div class="badge-placeholder">TOOLS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-card works-card">
+          <h3>Mini Toolkit</h3>
+          <div class="works-mini-grid">
+            <a class="work-item" href="{{ get_url(path='/projects') }}">
+              <span class="work-icon">KIT</span>
+              <span>Projeler</span>
+            </a>
+            <a class="work-item" href="{{ get_url(path='/blog') }}">
+              <span class="work-icon">LOG</span>
+              <span>Blog</span>
+            </a>
+            <a class="work-item" href="{{ get_url(path='/thoughts') }}">
+              <span class="work-icon">TH</span>
+              <span>Düşünceler</span>
+            </a>
+            <a class="work-item" href="{{ get_url(path='/poetry') }}">
+              <span class="work-icon">PO</span>
+              <span>Şiir</span>
+            </a>
+          </div>
+          <a class="view-all-link" href="{{ get_url(path='/projects') }}">Hepsini gör →</a>
+        </div>
+
+        <div class="bento-card indieweb-card">
+          <h3>Games I like</h3>
+          <div class="works-mini-grid">
+            <div class="work-item" style="cursor: default;">
+              <span class="work-icon">P2</span>
+              <span>Portal 2</span>
+            </div>
+            <div class="work-item" style="cursor: default;">
+              <span class="work-icon">SD</span>
+              <span>Stardew</span>
+            </div>
+            <div class="work-item" style="cursor: default;">
+              <span class="work-icon">CS</span>
+              <span>Celeste</span>
+            </div>
+            <div class="work-item" style="cursor: default;">
+              <span class="work-icon">FW</span>
+              <span>Firewatch</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

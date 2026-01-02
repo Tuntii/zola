@@ -1164,6 +1164,30 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
+// Uniform cover sizing for game images inside the about mini grid
+.about-mini-grid .work-item {
+  aspect-ratio: auto;
+  padding: var(--space-sm);
+}
+
+.about-mini-grid .work-item img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  display: block;
+}
+
+.about-mini-grid .work-item span {
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  text-align: center;
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // CARDS
 // ─────────────────────────────────────────────────────────────────────────────

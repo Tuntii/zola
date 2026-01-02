@@ -16,7 +16,7 @@
           <span class="title-word gradient-text">{{ page.title }}</span>
         </span>
       </h1>
-      <div class="hero-meta" style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 1rem; display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+      <div class="hero-meta">
         <span>{{ page.date }}</span>
         {% if page.reading_time %}
         <span class="separator">•</span>
@@ -24,29 +24,29 @@
         {% endif %}
         {% if page.taxonomies.tags %}
         <span class="separator">•</span>
-        <span class="tags" style="display: flex; gap: 0.5rem;">
+        <span class="tags">
           {% for tag in page.taxonomies.tags %}
-          <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}" class="tag" style="color: var(--color-accent); text-decoration: none;">#{{ tag }}</a>
+          <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}" class="tag">#{{ tag }}</a>
           {% endfor %}
         </span>
         {% endif %}
       </div>
     </div>
 
-    <div class="tiptap-content" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-2xl); position: relative;">
+    <div class="tiptap-content">
       
       {% if page.toc %}
-      <div class="toc" style="background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 2rem; border: 1px solid var(--glass-border);">
-        <h3 style="margin-top: 0; font-size: 1.2rem; margin-bottom: 1rem;">İçindekiler</h3>
-        <ul style="list-style: none; padding-left: 0; margin: 0;">
+      <div class="toc">
+        <h3 class="toc-title">İçindekiler</h3>
+        <ul class="toc-list">
         {% for h1 in page.toc %}
-          <li style="margin-bottom: 0.5rem;">
-            <a href="{{ h1.permalink | safe }}" style="color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s;">{{ h1.title }}</a>
+          <li>
+            <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
             {% if h1.children %}
-            <ul style="list-style: none; padding-left: 1rem; margin-top: 0.5rem;">
+            <ul>
               {% for h2 in h1.children %}
               <li>
-                <a href="{{ h2.permalink | safe }}" style="color: var(--color-text-tertiary); text-decoration: none; font-size: 0.9em;">{{ h2.title }}</a>
+                <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
               </li>
               {% endfor %}
             </ul>
@@ -59,25 +59,25 @@
 
       {{ page.content | safe }}
 
-      <div class="share-buttons" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); display: flex; gap: 1rem; align-items: center;">
-        <span style="color: var(--color-text-secondary);">Paylaş:</span>
-        <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ current_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-primary); text-decoration: none;">Twitter</a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ current_url }}&title={{ page.title }}" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-primary); text-decoration: none;">LinkedIn</a>
+      <div class="share-buttons">
+        <span class="share-label">Paylaş:</span>
+        <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ current_url }}" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ current_url }}&title={{ page.title }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
 
-    <div class="post-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem; gap: 1rem;">
+    <div class="post-navigation">
       {% if page.lower %}
-      <a class="prev" href="{{ page.lower.permalink }}" style="flex: 1; padding: 1.5rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); text-decoration: none; color: var(--color-text-primary);">
-        <span class="nav-label" style="display: block; font-size: 0.8rem; color: var(--color-text-tertiary); margin-bottom: 0.5rem;">← Önceki Yazı</span>
-        <span class="nav-title" style="font-weight: 500;">{{ page.lower.title }}</span>
+      <a class="prev" href="{{ page.lower.permalink }}">
+        <span class="nav-label">← Önceki Yazı</span>
+        <span class="nav-title">{{ page.lower.title }}</span>
       </a>
       {% endif %}
       
       {% if page.higher %}
-      <a class="next" href="{{ page.higher.permalink }}" style="flex: 1; padding: 1.5rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); text-decoration: none; color: var(--color-text-primary); text-align: right;">
-        <span class="nav-label" style="display: block; font-size: 0.8rem; color: var(--color-text-tertiary); margin-bottom: 0.5rem;">Sonraki Yazı →</span>
-        <span class="nav-title" style="font-weight: 500;">{{ page.higher.title }}</span>
+      <a class="next" href="{{ page.higher.permalink }}">
+        <span class="nav-label">Sonraki Yazı →</span>
+        <span class="nav-title">{{ page.higher.title }}</span>
       </a>
       {% endif %}
     </div>

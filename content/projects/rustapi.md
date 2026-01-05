@@ -9,87 +9,89 @@ tags = ["rust", "web-framework", "api", "openapi"]
 category = "Open Source"
 +++
 
-RustAPI, modern web framework'lerinin (FastAPI gibi) geliştirici deneyimini (DX) Rust ekosistemine getirmeyi amaçlayan, ergonomik ve üretim odaklı bir web çatısıdır.
+# RustAPI 🦀
 
-## Vizyon 🚀
+### FastAPI ergonomics. Rust performance. AI‑ready by design.
 
-Yüksek performanslı ve tip güvenli web API'leri yazmanın, karmaşık trait sınırlarıyla veya devasa kod tekrarlarıyla (boilerplate) boğuşmayı gerektirmediğine inanıyoruz. RustAPI, şunları sunan cilalanmış bir deneyim sağlar:
+**RustAPI** is a modern, batteries‑included **Rust web framework** designed for building high‑performance APIs with an exceptional developer experience.
 
-- **API Tasarımı Birinci Sınıftır:** Şemanızı tanımlayın, doğrulama ve OpenAPI dokümantasyonunu framework halletsin.
-- **Motor Soyutlanmıştır:** Dahili olarak `tokio`, `hyper` ve `matchit` gibi endüstri standartlarına dayanır, ancak kararlı ve kullanıcı odaklı bir API sunar.
-- **Sıfır Boilerplate:** Extractor'lar ve makrolar ağır işi yapar.
-- **Yüksek Performans:** Minimum ek yük ile hızlı ve asenkron.
-- **Yüksek IO** : Gerçek dünya uygulamaları için tasarlanmıştır.
+Inspired by **FastAPI**, RustAPI lets you define complete REST endpoints in just a few lines of code — with **automatic OpenAPI documentation**, strong typing, and async performance out of the box.
 
-## Özellikler ✨
+---
 
-- **⚡ Hızlı ve Asenkron:** `tokio` ve `hyper` 1.0 üzerine inşa edilmiştir.
-- **🛡️ Tip Güvenli:** İstek/Yanıt gövdeleri jenerik extractor'lar (`Json`, `Query`, `Path`) kullanılarak sıkı bir şekilde tiplendirilir.
-- **📝 Otomatik OpenAPI:** Kodunuz dokümantasyonunuzdur. Swagger UI `/docs` adresinde kutudan çıktığı gibi sunulur.
-- **✅ Dahili Doğrulama:** Yapılarınıza `#[validate(email)]` ekleyin ve otomatik 422 hata yönetimi elde edin.
-- **🧩 Sezgisel Yönlendirme:** `#[rustapi::get]`, `#[rustapi::post]` gibi basit makrolarla Radix-tree tabanlı yönlendirme.
-- **🔋 Piller Dahil:** Middleware, JWT kimlik doğrulama, CORS, hız sınırlama (rate limiting) ve yapılandırma yönetimi.
-- **📦 Modüler Tasarım:** İhtiyacınız olan özellikleri seçin, gereksiz bağımlılıklardan kaçının.
-- **🧑‍💻 Geliştirici Dostu:** Geliştirici deneyimi ön planda tutulmuştur; sezgisel API'ler ve kapsamlı belgeler.
-- **🧙 Toon Desteği** : RustAPI, gelişmiş LLM ve MCP desteği ile TOON ekosistemine sorunsuz entegrasyon sağlar.
+## ✨ Why RustAPI?
 
-## Hızlı Başlangıç 📦
+* ⚡ **FastAPI‑like ergonomics** in Rust
+* 🦀 Built for **performance, safety, and scalability**
+* 📄 Automatic **OpenAPI / Swagger** documentation
+* 🔐 Built‑in **JWT authentication**, CORS, and rate limiting
+* 🧠 **MCP‑ready** with native **TOON format** support for LLMs
+* 🧩 Modular, opt‑in features via Cargo flags
 
-`Cargo.toml` dosyanıza `rustapi-rs` ekleyin:
+---
 
-```toml
-[dependencies]
-rustapi-rs = "0.1"
+## 🤖 AI & MCP First‑Class Support
+
+RustAPI is designed with **AI backends and MCP servers** in mind.
+
+With native **TOON format** support, RustAPI enables:
+
+* 📉 **40–60% token savings** for LLM payloads
+* 🚀 Faster request / response cycles
+* 🧠 Seamless integration with modern AI workflows
+
+Perfect for:
+
+* MCP servers
+* LLM‑powered APIs
+* AI agents and orchestration layers
+
+---
+
+## 🛠 Developer Experience That Scales
+
+RustAPI focuses on **clarity and productivity** without sacrificing control:
+
+* Type‑safe request & response handling
+* Schema auto‑registration via macros
+* Clean, minimal API surface
+* Async‑first architecture powered by Tokio
+
+> Write less boilerplate. Ship faster. Stay in Rust.
+
+---
+
+## 🚀 Use Cases
+
+* REST & JSON APIs
+* AI / LLM backends
+* Microservices
+* Internal tooling
+* High‑performance web services
+
+---
+
+## 📦 Getting Started
+
+Install via Cargo:
+
+```bash
+cargo add rustapi-rs
 ```
 
-Basit bir "Merhaba Dünya" örneği:
+Define an API endpoint in minutes and get instant docs at `/docs`.
 
-```rust
-use rustapi_rs::prelude::*;
+---
 
-/// Yanıt şemanızı tanımlayın
-#[derive(Serialize, Schema)]
-struct HelloResponse {
-    message: String,
-}
+## 🌍 Open Source & Community‑Driven
 
-/// Bir uç nokta (endpoint) tanımlayın
-#[rustapi::get("/")]
-#[rustapi::tag("Genel")]
-#[rustapi::summary("Merhaba Dünya Uç Noktası")]
-async fn hello() -> Json<HelloResponse> {
-    Json(HelloResponse {
-        message: "RustAPI'den Merhaba!".to_string(),
-    })
-}
+RustAPI is **open source** and actively evolving.
 
-/// Sunucuyu çalıştırın
-#[rustapi::main]
-async fn main() -> Result<()> {
-    RustApi::new()
-        .mount_route(hello_route()) // Otomatik oluşturulan rota işleyicisi
-        .docs("/docs")              // Swagger UI'ı etkinleştir
-        .run("127.0.0.1:8080")
-        .await
-}
-```
+Contributions, feedback, and ideas are always welcome.
 
+⭐ Star the repo if RustAPI helps you build better APIs.
 
-## Gelecek Planları 📅
+---
 
-- **WebSocket Desteği:** Gerçek zamanlı uygulamalar için WebSocket entegrasyonu.
-- **Gelişmiş Orta Katman (Middleware) Desteği:** Özelleştirilmiş middleware oluşturma yetenekleri.
-- **Veritabanı Entegrasyonları:** Popüler ORM'ler ve veritabanları için resmi destek.
-- **Topluluk Katkıları:** Açık kaynak topluluğunun katkılarını teşvik etmek ve desteklemek.
-
-
-## Mimari 🏗️
-
-RustAPI, uzun vadeli kararlılık sağlamak için Facade Mimarisi izler:
-
-- **`rustapi-rs`**: Halka açık crate. Temiz bir yüzey sağlamak için özenle seçilmiş türleri ve trait'leri yeniden dışa aktarır.
-- **`rustapi-core`**: Dahili motor. HTTP protokolünü, yönlendirme mantığını ve bağlayıcı kodları yönetir.
-- **`rustapi-macros`**: `#[rustapi::main]` ve `#[rustapi::get]` gibi ergonomik nitelikleri güçlendirir.
-- **`rustapi-openapi` / `rustapi-validate`**: Harici ekosistemleri (`utoipa`, `validator`) tutarlı API'mize saran özelleştirilmiş crate'ler.
-
-Daha fazla bilgi ve kaynak kodları için [GitHub Deposu](https://github.com/Tuntii/RustAPI)nu ziyaret edebilirsiniz.
+**RustAPI**
+*API surface is yours. Engines can change.*

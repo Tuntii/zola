@@ -25,11 +25,11 @@ image = "/images/games/cyberpunk.jpg"
 
 [[extra.socials]]
 name = "GitHub"
-url = "https://github.com/yourusername"
+url = "https://github.com/Tuntii"
 icon = "github"
 [[extra.socials]]
 name = "Twitter"
-url = "https://twitter.com/yourusername"
+url = "https://twitter.com/Tuntii"
 icon = "twitter"
 
 [[extra.contacts]]

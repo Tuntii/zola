@@ -1,0 +1,125 @@
+[home]
+other = "Ana Sayfa"
+
+[about]
+other = "Hakkımda"
+
+[projects]
+other = "Projeler"
+
+[blog]
+other = "Yazılar"
+
+[poetry]
+other = "Şiirler"
+
+[thoughts]
+other = "Düşünceler"
+
+[search_placeholder]
+other = "Ara..."
+
+[prepared_with_care]
+other = "özenle hazırlandı"
+
+[intro_text]
+other = "Merhabalar! Dijital dünyadaki küçük köşeme hoş geldiniz."
+
+[about_title]
+other = "Hakkımda"
+
+[about_text_1]
+other = "İnternetin hızlı akışına karşı; yavaş, meraklı ve düzenli bir not defteri. Burada güvenlik, yazılım ve küçük günlük parçaları yan yana duruyor."
+
+[who_am_i]
+other = "Ben kimim?"
+
+[who_am_i_desc_1]
+other = "Üreten, bozan, çoğu zaman düzelten. minimal çözümler; bazen de aşırı meraklıyım. Bu site, o merakın derli toplu arşivi."
+
+[who_am_i_desc_2]
+other = "Şu sıralar çoğunlukla: RustAPI, Stealth Startup ve Bu Site uğraşıyorum. Sevdiğim şey: bir problemi en sade haline indirip tekrar kurmak."
+
+[random_likes]
+other = "Sevdiğim Rastgele Şeyler"
+
+[purple_shades]
+other = "Mor tonları"
+
+[easter_eggs]
+other = "Easter egg’ler"
+
+[minimal_designs]
+other = "Minimal tasarımlar"
+
+[clean_code]
+other = "Temiz kod"
+
+[cli_tools]
+other = "Komut satırı araçları"
+
+[analog_photography]
+other = "Analog fotoğrafçılık"
+
+[quick_links]
+other = "Hızlı Linkler"
+
+[focus]
+other = "Odağım"
+
+[focus_desc]
+other = "Bilimsel Şeyler • Startup • Yazmak"
+
+[principles]
+other = "Prensipler"
+
+[principles_desc]
+other = "Temiz mimari, daha az hareketli parça, ölçeklenebilirlik"
+
+[note_title]
+other = "Not"
+
+[shy_quote]
+other = "“İlk bakışta mesafeli görünebilirim; ama ısındıkça daha çok konuşurum.”"
+
+[shy_note]
+other = "Bu yüzden yazılar çoğu zaman “net” ve “kısa” kalır."
+
+[favorite_games]
+other = "Sevdiğim Oyunlar"
+
+[online_title]
+other = "Online"
+
+[online_desc]
+other = "Bazen görünür, bazen sessiz. Burada “şu an ne çalıyor”, nerelerde varım ve nasıl ulaşılır hepsi tek yerde."
+
+[social_media]
+other = "Sosyal Medya"
+
+[quick_connections]
+other = "hızlı bağlantılar"
+
+[contact]
+other = "İletişim"
+
+[contact_desc_1]
+other = "En hızlı yol: GitHub/LinkedIn. Mesaj bırakmak istersen aşağıdaki kanalların hepsi uygun."
+
+[small_notes]
+other = "Ufak Notlar"
+
+[response_style]
+other = "Genelde yanıtlarım kısa ve net olur. Eğer detay gerekiyorsa, bağlamı yazınca hızlanıyorum."
+
+[loading]
+other = "Yükleniyor…"
+
+[open]
+other = "Aç →"
+
+[last_played]
+other = "Son çalınan şarkı çekiliyor"
+
+[projects_link]
+other = "Projeler →"

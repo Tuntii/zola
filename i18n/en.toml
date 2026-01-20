@@ -1,0 +1,125 @@
+[home]
+other = "Home"
+
+[about]
+other = "About"
+
+[projects]
+other = "Projects"
+
+[blog]
+other = "Blog"
+
+[poetry]
+other = "Poetry"
+
+[thoughts]
+other = "Thoughts"
+
+[search_placeholder]
+other = "Search..."
+
+[prepared_with_care]
+other = "carefully crafted"
+
+[intro_text]
+other = "Greetings! Welcome to my little corner on the World Wide Web."
+
+[about_title]
+other = "About Me"
+
+[about_text_1]
+other = "Against the fast flow of the internet; a slow, curious, and organized notebook. Here, security, software, and small diary pieces stand side by side."
+
+[who_am_i]
+other = "Who am I?"
+
+[who_am_i_desc_1]
+other = "Creator, breaker, mostly fixer. Minimal solutions; sometimes overly curious. This site is the tidy archive of that curiosity."
+
+[who_am_i_desc_2]
+other = "Currently mostly hacking on: RustAPI, Stealth Startup, and This Site. What I love: reducing a problem to its simplest form and rebuilding it."
+
+[random_likes]
+other = "Random Things I Like"
+
+[purple_shades]
+other = "Purple shades"
+
+[easter_eggs]
+other = "Easter eggs"
+
+[minimal_designs]
+other = "Minimal designs"
+
+[clean_code]
+other = "Clean code"
+
+[cli_tools]
+other = "Command line tools"
+
+[analog_photography]
+other = "Analog photography"
+
+[quick_links]
+other = "Quick Links"
+
+[focus]
+other = "Focus"
+
+[focus_desc]
+other = "Scientific Stuff • Startup • Writing"
+
+[principles]
+other = "Principles"
+
+[principles_desc]
+other = "Clean architecture, fewer moving parts, scalability"
+
+[note_title]
+other = "Note"
+
+[shy_quote]
+other = "“I might seem distant at first glance; but I talk more as I warm up.”"
+
+[shy_note]
+other = "That's why posts usually remain “clear” and “short”."
+
+[favorite_games]
+other = "Favorite Games"
+
+[online_title]
+other = "Online"
+
+[online_desc]
+other = "Sometimes visible, sometimes silent. Here is everything in one place: “what's playing now”, where I am, and how to reach me."
+
+[social_media]
+other = "Social Media"
+
+[quick_connections]
+other = "quick links"
+
+[contact]
+other = "Contact"
+
+[contact_desc_1]
+other = "Fastest way: GitHub/LinkedIn. If you want to leave a message, all channels below are suitable."
+
+[small_notes]
+other = "Small Notes"
+
+[response_style]
+other = "My responses are usually short and clear. If detail is needed, I speed up when context is written."
+
+[loading]
+other = "Loading…"
+
+[open]
+other = "Open →"
+
+[last_played]
+other = "Fetching last played song"
+
+[projects_link]
+other = "Projects →"

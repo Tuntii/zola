@@ -1,7 +1,5 @@
 # The URL the site will be built for
 base_url = "https://tunti35.com"
-title = "Tunti35 | Developer & Computer Scientist"
-description = "Yazılım ile uğraşan bir dijital insanın kişisel web sitesi ve onu yansıtan bir sayfası."
 default_language = "tr"
 
 # Whether to automatically compile all Sass files in the sass directory
@@ -13,6 +11,22 @@ build_search_index = true
 generate_feed = true
 feed_filename = "atom.xml"
 
+taxonomies = [
+    {name = "tags"},
+]
+
+[languages.tr]
+title = "Tunti35 | Yazılım & Bilgisayar Bilimi"
+description = "Yazılım ile uğraşan bir dijital insanın kişisel web sitesi ve onu yansıtan bir sayfası."
+generate_feed = true
+taxonomies = [
+    {name = "tags"},
+]
+
+[languages.en]
+title = "Tunti35 | Software & Computer Science"
+description = "Personal website of a digital being dealing with software."
+generate_feed = true
 taxonomies = [
     {name = "tags"},
 ]
@@ -29,3 +43,5 @@ twitter_username = "@tuntii35"
 github_username = "tuntii"
 keywords = "Tunay, Tunti35, yazılım, developer, programlama, bilgisayar bilimi, teknoloji"
 og_image = "images/og-image.png"
+
+# Common translation keys are likely handled in i18n files, but we keep global extra vars here.
